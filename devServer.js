@@ -10,10 +10,15 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
+
+app.use(require("webpack-hot-middleware")(compiler));
+
 
 app.use(express.static(path.join(__dirname + "/_build")));
-
-app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));

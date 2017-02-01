@@ -3,9 +3,9 @@ var path = require("path");
 
 module.exports = {
   devtool: "source-map",
-  entry: "./src/main.js",
+  entry: ["webpack-hot-middleware/client","./src/main.js"],
   output: {
-    path: "_build",
+    path: path.join(__dirname, "_build"),
     filename: "bundle.js",
     publicPath: "/static/"
   },
