@@ -12,6 +12,11 @@ body {
 #app{
   height: 100%;
   width: 100%;
+}
+
+.theBigWrapper{
+  height: 100%;
+  width: 100%;
   display: flex;
 }
 
@@ -23,8 +28,10 @@ body {
     height: 40%;
     margin: auto;
     align-items: center;
+    justify-content: center;
 
     h1{
+      margin: 5% 0;
       color: white;
       font-size: 4em;
       font-family: 'Candal', sans-serif;

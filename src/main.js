@@ -1,25 +1,35 @@
 import React from "react";
 import {render} from "react-dom";
 
+//css
 import "./stylesheets/styles.css";
 
+//components
+import Login from "./components/major/Login";
+import App from "./components/App";
+import NotFound from "./components/minor/NotFound";
 
-const Login = React.createClass({
-  render(){
-    return(
 
-        <div className="loginBox">
-          <h1>Slots</h1>
-            
-            <input type="text" placeholder="username" />
-            
-            <input type="text" placeholder="password" />
 
-            <button>Login</button>
-          
-        </div>
-      )
-  }
-});
+// Router dependencies
+import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import { Provider } from "react-redux";
 
-render(<Login />, document.getElementById("app"));
+//store
+import { store,  history} from "./store.js";
+
+
+const router = (
+
+  <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Login}></IndexRoute>
+          <Route path="/*" component={NotFound}></Route>
+        </Route>
+      </Router>
+  </Provider>
+
+)
+
+render(router, document.getElementById("app"));
