@@ -1,0 +1,32 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+    margin: 0;
+}
+
+#app{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.loginBox{
+    background: rgba(150,58,73, 0.9);
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 40%;
+    margin: auto;
+    align-items: center;
+
+    h1{
+      color: white;
+      font-size: 4em;
+      font-family: 'Candal', sans-serif;
+    }
+}

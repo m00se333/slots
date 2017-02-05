@@ -17,12 +17,14 @@ module.exports = {
       {
         test: /\.js$/,
         include: path.join(__dirname, "src/"),
-        loader: "babel-loader"
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        query: { "presets": ["es2015","react", "react-hmre"] }
       },
       {
         test: /\.css$/,
         include: path.join(__dirname, "src/stylesheets"),
-        loaders: ["style", "css", "sass"]
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
   }
