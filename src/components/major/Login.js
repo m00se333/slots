@@ -2,19 +2,24 @@ import React from "react";
 
 const Login = React.createClass({
 
+  authenticateUser(e){
+    e.preventDefault();
+
+    this.props.loginSubmit(this.username_field.value, this.password_field.value)
+
+    this.username_field.value = "";
+    this.password_field.value = "";
+
+  },
 
   render(){
     return(
 
         <div className="loginBox">
-          <h1>Slots</h1>
-            
-            <input type="text" placeholder="username" />
-            
-            <input type="text" placeholder="password" />
-
-            <button>Login</button>
-          
+          <h1>Slots</h1>            
+            <input ref={(input) => this.username_field = input} type="text" placeholder="username" />
+            <input ref={(input) => this.password_field = input} type="text" placeholder="password" />
+            <button onClick={this.authenticateUser}>Login</button>
         </div>
       )
   }

@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export function loginUser(username){
+export function loginSubmit(username, password){
   
-    const hit = axios.post("/login", {data: username});
+    const hit = axios.post("/login", {username, password});
 
     return (dispatch) => {
 
         hit.then(({data}) => {
-          dispatch({ type: "HIT", username});
+          dispatch({ type: "HIT", success:true});
           console.log(data);
         });
     };

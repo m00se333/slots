@@ -6,7 +6,8 @@ import StoreShell from "./StoreShell.js";
 
 function mapStateToProps(state){
   return{
-    userId: state.userId
+    loginStatus: state.loginStatus,
+    userInfo: state.userInfo
   }
 }
 

@@ -8,6 +8,7 @@ import "./stylesheets/styles.css";
 import Login from "./components/major/Login";
 import App from "./components/App";
 import NotFound from "./components/minor/NotFound";
+import StudentDash from "./components/major/StudentDash";
 
 
 
@@ -25,7 +26,7 @@ const router = (
       <Router history={history}>
         <Route path="/" component={App}>
           <IndexRoute component={Login}></IndexRoute>
-          <Route path="/*" component={NotFound}></Route>
+          <Route path="/student/:id" component={StudentDash}></Route>
         </Route>
       </Router>
   </Provider>

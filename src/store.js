@@ -11,7 +11,13 @@ import rootReducer from "./reducers/mainReducer";
 
 const defaultState = {
 
-  userId: null
+  loginStatus:{
+
+    success: false
+
+  },
+
+  userInfo:{}
 
 }
 
