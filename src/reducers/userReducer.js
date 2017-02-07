@@ -2,9 +2,13 @@ export function loginStatus(state=null, action){
   
   switch(action.type){
 
-      case "HIT":
+      case "LOGIN_SUCCESS":
         console.log(action);
         return {...state, success: true};
+
+      case "LOGIN_ERROR":
+        console.log(action);
+        return {...state, success: false};
   
       default:
         return state;

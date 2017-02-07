@@ -20,11 +20,15 @@ app.use(require("webpack-hot-middleware")(compiler));
 
 app.use(express.static(path.join(__dirname + "/_build")));
 
+// sending React stuff
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+
+//route handling
 app.post("/login", function(req, res){
+  
   var userInfo = {
     name: req.body.username,
     password: req.body.password
@@ -33,14 +37,17 @@ app.post("/login", function(req, res){
   console.log(userInfo.name);
   console.log(userInfo.password);
 
-    if (userInfo.name === null || userInfo.password === null){
-      console.log("ERROR!");
+    if (userInfo.name === "" || userInfo.password === ""){
+      res.send({type: "LOGIN_ERROR", message: userInfo})
     } else {
-      res.send({type: "HIT", message: userInfo});
+      res.send({type: "LOGIN_SUCCESS", message: userInfo});
     }
+});
 
-  
-})
+
+
+
+
 
 app.listen(PORT, function(err) {
   if (err) {

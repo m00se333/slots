@@ -13,7 +13,7 @@ const defaultState = {
 
   loginStatus:{
 
-    success: false
+    success: null
 
   },
 

@@ -10,9 +10,16 @@ const Login = React.createClass({
     this.username_field.value = "";
     this.password_field.value = "";
 
+    this.props.router.push("/student/hello");
+
+  },
+
+  authenticateSuccess(){
+
   },
 
   render(){
+
     return(
 
         <div className="loginBox">
