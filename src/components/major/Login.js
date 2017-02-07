@@ -2,6 +2,15 @@ import React from "react";
 
 const Login = React.createClass({
 
+
+  componentDidUpdate(){
+    if (this.props.loginStatus.success === true){
+        this.props.router.push("/student/hello");
+        console.log("moving...")
+    }
+  },
+
+
   authenticateUser(e){
     e.preventDefault();
 
@@ -10,15 +19,12 @@ const Login = React.createClass({
     this.username_field.value = "";
     this.password_field.value = "";
 
-    this.props.router.push("/student/hello");
-
-  },
-
-  authenticateSuccess(){
 
   },
 
   render(){
+
+    console.log(this.location)
 
     return(
 

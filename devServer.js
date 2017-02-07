@@ -38,9 +38,9 @@ app.post("/login", function(req, res){
   console.log(userInfo.password);
 
     if (userInfo.name === "" || userInfo.password === ""){
-      res.send({type: "LOGIN_ERROR", message: userInfo})
+      res.send({success: false, message: userInfo})
     } else {
-      res.send({type: "LOGIN_SUCCESS", message: userInfo});
+      res.send({success: true, message: userInfo});
     }
 });
 

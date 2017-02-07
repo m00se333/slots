@@ -7,8 +7,13 @@ export function loginSubmit(username, password){
     return (dispatch) => {
 
         hit.then(({data}) => {
-          dispatch({ type: "LOGIN_SUCCESS", success:true});
-          console.log(data);
+
+          if (data.success === false){
+            dispatch({type: "LOGIN_ERROR"})
+          } else if (data.success === true){
+            dispatch({type: "LOGIN_SUCCESS"})
+          }
+
         });
     };
 };
