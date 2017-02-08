@@ -17,7 +17,7 @@ const defaultState = {
 
   },
 
-  userInfo:{}
+  loginForm: null
 
 }
 

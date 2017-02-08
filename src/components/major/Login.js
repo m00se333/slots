@@ -1,38 +1,62 @@
 import React from "react";
 
+import LoginForm from "../minor/LoginForm";
+import SignUpForm from "../minor/SignUpForm";
+
 const Login = React.createClass({
+
+  // for the sake of simply switching forms
+  getInitialState(){
+
+    return {
+      form: null
+    }
+
+  },
 
 
   componentDidUpdate(){
     if (this.props.loginStatus.success === true){
         this.props.router.push("/student/hello");
         console.log("moving...")
-    }
+    } 
   },
 
+  componentWillUnmount(){
+    this.props.resetSuccess();
+  },
 
-  authenticateUser(e){
-    e.preventDefault();
+  displayForm(){
+    
+    if (this.state.form === "login"){
+      return <LoginForm loginSubmit={this.props.loginSubmit} />
+    } else if (this.state.form === "signUp"){
+      return <SignUpForm />
+    } 
 
-    this.props.loginSubmit(this.username_field.value, this.password_field.value)
+  },
 
-    this.username_field.value = "";
-    this.password_field.value = "";
+  renderLogin(){
+    this.setState({
+      form: "login"
+    });
+  },
 
-
+  renderSignUp(){
+    this.setState({
+      form: "signUp"
+    })
   },
 
   render(){
 
-    console.log(this.location)
-
     return(
 
         <div className="loginBox">
-          <h1>Slots</h1>            
-            <input ref={(input) => this.username_field = input} type="text" placeholder="username" />
-            <input ref={(input) => this.password_field = input} type="text" placeholder="password" />
-            <button onClick={this.authenticateUser}>Login</button>
+          <h1>Slots</h1>
+          <button onClick={this.renderLogin}  name="login" >Login</button>
+          <button onClick={this.renderSignUp} name="signUp" >Sign Up</button>            
+          {this.displayForm()}
         </div>
       )
   }

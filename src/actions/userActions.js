@@ -17,3 +17,7 @@ export function loginSubmit(username, password){
         });
     };
 };
+
+export function resetSuccess(){
+  return {type: "NAV_AWAY"};
+}

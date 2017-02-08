@@ -1,4 +1,4 @@
-export function loginStatus(state=null, action){
+export function loginStatus(state={}, action){
   
   switch(action.type){
 
@@ -9,16 +9,25 @@ export function loginStatus(state=null, action){
       case "LOGIN_ERROR":
         console.log(action);
         return {...state, success: false};
-  
+
+      case "NAV_AWAY":
+        console.log(action);
+        return {...state, success: null};
+          
       default:
         return state;
   }
 
 };
 
-export function userInfo(state=null, action){
+export function loginForm(state=null, action){
 
   switch(action.type){
+
+      case "CHOOSE_FORM":
+  
+        return {...state, loginForm: action.form };
+
 
       default:
         return state;
