@@ -17,13 +17,16 @@ const LoginForm = React.createClass({
   render(){
 
       return(
-
-          <form className="loginForm" action="">
-            <input ref={(input) => this.username_field = input} type="text" placeholder="username" />
-            <input ref={(input) => this.password_field = input} type="text" placeholder="password" />
-            <button onClick={this.authenticateUser}>Login</button>
-          </form>
-
+        <div className="loginWrapper">
+          <button className="formSelect" onClick={this.props.renderSignUp} name="signUp" >Sign Up</button>
+          <div className="loginBox">
+            <form className="loginForm" action="">
+              <input ref={(input) => this.username_field = input} type="text" placeholder="username" />
+              <input ref={(input) => this.password_field = input} type="text" placeholder="password" />
+              <button onClick={this.authenticateUser}>Login</button>
+            </form>
+          </div>
+        </div>
         )
   }
 

@@ -29,10 +29,17 @@ const Login = React.createClass({
   displayForm(){
     
     if (this.state.form === "login"){
-      return <LoginForm loginSubmit={this.props.loginSubmit} />
+      return <LoginForm renderSignUp={this.renderSignUp} loginSubmit={this.props.loginSubmit} />
     } else if (this.state.form === "signUp"){
-      return <SignUpForm />
-    } 
+      return <SignUpForm renderLogin={this.renderLogin} />
+    } else {
+      return(
+        <div className="buttonBox">
+          <button className="formSelect" onClick={this.renderLogin}  name="login" >Login</button>
+          <button className="formSelect" onClick={this.renderSignUp} name="signUp" >Sign Up</button> 
+        </div>
+        )
+    }
 
   },
 
@@ -52,10 +59,8 @@ const Login = React.createClass({
 
     return(
 
-        <div className="loginBox">
+        <div className="loginComponentWrapper">
           <h1>Slots</h1>
-          <button onClick={this.renderLogin}  name="login" >Login</button>
-          <button onClick={this.renderSignUp} name="signUp" >Sign Up</button>            
           {this.displayForm()}
         </div>
       )
