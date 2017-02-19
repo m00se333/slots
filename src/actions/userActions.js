@@ -21,3 +21,7 @@ export function loginSubmit(username, password){
 export function resetSuccess(){
   return {type: "NAV_AWAY"};
 }
+
+export function selectForm(form){
+  return {type: "CHOOSE_FORM", form};
+}

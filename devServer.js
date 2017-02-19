@@ -5,6 +5,18 @@ var webpack = require("webpack");
 var config = require("./webpack.config");
 var app = express();
 var compiler = webpack(config);
+var stormpath = require("express-stormpath");
+
+// stormpath 
+app.use(stormpath.init(app,{
+    web: {
+      spa: {
+        enabled: true,
+        view: path.join(__dirname, "index.html")
+      },
+      produces: ["application/json"]
+    }
+}));
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -20,7 +32,7 @@ app.use(require("webpack-hot-middleware")(compiler));
 
 app.use(express.static(path.join(__dirname + "/_build")));
 
-// sending React stuff
+// sending React files
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -45,10 +57,6 @@ app.post("/login", function(req, res){
 });
 
 
-
-
-
-
 app.listen(PORT, function(err) {
   if (err) {
     console.log(err);
@@ -56,3 +64,4 @@ app.listen(PORT, function(err) {
   }
   console.log('Listening at ' + PORT);
 });
+

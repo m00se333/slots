@@ -13,7 +13,7 @@ export function loginStatus(state={}, action){
       case "NAV_AWAY":
         console.log(action);
         return {...state, success: null};
-          
+
       default:
         return state;
   }
@@ -26,7 +26,7 @@ export function loginForm(state=null, action){
 
       case "CHOOSE_FORM":
   
-        return {...state, loginForm: action.form };
+        return action.form;
 
 
       default:
