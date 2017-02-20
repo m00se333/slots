@@ -10,9 +10,17 @@ var stormpath = require("express-stormpath");
 // stormpath 
 app.use(stormpath.init(app,{
     web: {
-      spa: {
-        enabled: true,
-        view: path.join(__dirname, "index.html")
+      register: {
+        form: {
+          fields:{
+            givenName: {
+              required: false
+            },
+            surname: {
+              required: false
+            }
+          }
+        }
       },
       produces: ["application/json"]
     }
@@ -56,6 +64,13 @@ app.post("/login", function(req, res){
     }
 });
 
+// test stormpath register
+app.post("/register", function(req,res){
+    var email = req.body.email;
+    var password = req.body.password;
+
+    console.log(email, password);
+  })
 
 app.listen(PORT, function(err) {
   if (err) {
@@ -64,4 +79,10 @@ app.listen(PORT, function(err) {
   }
   console.log('Listening at ' + PORT);
 });
+
+
+// more stormpath
+app.on("stormpath.ready", function(){
+  console.log("Stormpath Ready");
+})
 

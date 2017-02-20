@@ -25,3 +25,17 @@ export function resetSuccess(){
 export function selectForm(form){
   return {type: "CHOOSE_FORM", form};
 }
+
+export function testRegister(){
+  
+  const hit = axios.post("/register", {givenName: "optional", surname: "optional", email: "foo@bar.com", password: "1337"});
+
+  return(dispatch) => {
+
+    hit.then(({data}) => {
+      console.log(data);
+    })
+  }
+}
+
+
