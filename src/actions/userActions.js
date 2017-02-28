@@ -18,6 +18,8 @@ export function loginSubmit(username, password){
     };
 };
 
+
+
 export function resetSuccess(){
   return {type: "NAV_AWAY"};
 }
@@ -28,14 +30,25 @@ export function selectForm(form){
 
 export function testRegister(){
   
-  const hit = axios.post("/register", {givenName: "optional", surname: "optional", email: "foo@bar.com", password: "1337"});
-
+  const hit = axios({
+                      "method": "POST",
+                      "url": "https://excellent-badger.apps.stormpath.io/register",
+                      "headers":{
+                        "content-type": "application/json"
+                      },
+                      data:{
+                        "email": "new@email.com",
+                        "password": "NightWAYS4"
+                      }
+                    })
   return(dispatch) => {
 
-    hit.then(({data}) => {
-      console.log(data);
-    })
-  }
+        hit.then(({data}) =>{
+          console.log(data)
+        })
+    }
+  
+  
 }
 
 

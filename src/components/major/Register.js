@@ -3,11 +3,6 @@ import {RegistrationForm, LoginLink} from "react-stormpath";
 
 
 const Register = React.createClass({
-
-  hitRegister(){
-    this.props.testRegister();
-  },
-  
   render(){
     return(
       <div>

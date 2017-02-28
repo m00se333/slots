@@ -5,26 +5,8 @@ var webpack = require("webpack");
 var config = require("./webpack.config");
 var app = express();
 var compiler = webpack(config);
-var stormpath = require("express-stormpath");
 
-// stormpath 
-app.use(stormpath.init(app,{
-    web: {
-      register: {
-        form: {
-          fields:{
-            givenName: {
-              required: false
-            },
-            surname: {
-              required: false
-            }
-          }
-        }
-      },
-      produces: ["application/json"]
-    }
-}));
+
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -64,13 +46,7 @@ app.post("/login", function(req, res){
     }
 });
 
-// test stormpath register
-app.post("/register", function(req,res){
-    var email = req.body.email;
-    var password = req.body.password;
 
-    console.log(email, password);
-  })
 
 app.listen(PORT, function(err) {
   if (err) {
@@ -81,8 +57,4 @@ app.listen(PORT, function(err) {
 });
 
 
-// more stormpath
-app.on("stormpath.ready", function(){
-  console.log("Stormpath Ready");
-})
 

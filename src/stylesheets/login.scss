@@ -1,0 +1,79 @@
+.loginComponentWrapper{
+    background: rgba(150,58,73, 1);
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+      color: white;
+      margin: 0;
+      font-size: 5em;
+      font-family: 'Candal', sans-serif;
+    }
+
+    a{
+      color: white;
+      font-size: 2em;
+      font-family: 'Candal', sans-serif;
+      margin: 0 0 3% 0;
+      text-decoration: none;
+    }
+
+    a:hover{
+      color: black;
+      text-decoration: underline;
+    }
+    
+    .loginWrapper{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .loginBox{
+          background: rgba(150,58,73, 1);
+          display: flex;
+          margin: 5%;
+        
+            .loginForm{
+              background: rgba(150,58,73, 1);
+              display: flex;
+              flex-direction: column;
+              margin: 0;
+
+              input{
+                font-family: 'Candal', sans-serif;
+                background-color: white;
+                color: black;
+                border: none;
+                font-size: 1.5em;
+                text-align: center;
+              }
+
+              input:nth-of-type(1){
+                margin-bottom: 1%;
+              }
+              input:nth-of-type(2){
+                margin: 1% 0;
+              }
+
+              button{
+                margin: 2% auto 0;
+                font-family: 'Candal', sans-serif;
+                font-size: 1.75em;
+                border: none;
+                background: white;
+                width: 75%;
+              }
+              button:hover{
+                background: black;
+                color: white;
+              }
+            }
+      }
+    }
+
+}

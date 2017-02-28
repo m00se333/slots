@@ -16,9 +16,8 @@ import Register from "./components/major/Register";
 
 
 // Router dependencies
-import { Route, IndexRoute, browserHistory } from "react-router";
+import { Route, Router, IndexRoute, browserHistory } from "react-router";
 import { Provider } from "react-redux";
-import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from "react-stormpath";
 
 //store
 import { store,  history} from "./store.js";
@@ -28,11 +27,11 @@ const router = (
 
   <Provider store={store}>
       <Router history={history}>
-        <HomeRoute path="/" component={App}>
+        <Route path="/" component={App}>
           <IndexRoute component={Login}></IndexRoute>
           <Route path="/register" component={Register}></Route>
           <Route path="/student/:id" component={StudentDash}></Route>
-        </HomeRoute>
+        </Route>
       </Router>
   </Provider>
 
