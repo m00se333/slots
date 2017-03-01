@@ -1,0 +1,67 @@
+.loginComponentWrapper{
+    background: rgba(150,58,73, 1);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+
+        .signUpBox{
+          display: flex;
+          margin: 5%;
+
+            .signUpForm{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+                .checkField{
+                  margin: 1% 0;
+                  flex-direction: column;
+
+                    input{
+                      margin: 0;
+                    }
+
+                    #status{
+                      text-align: center;
+                      font-size: 1em;                    }
+                }
+
+                input{
+                  flex: 1;
+                  font-family: 'Candal', sans-serif;
+                  background-color: white;
+                  color: black;
+                  border: none;
+                  font-size: 1.5em;
+                  text-align: center;
+                  margin: 1% 0;
+                }
+
+                #first{
+                  margin: 0 0 1% 0;
+                }
+                #last{
+                  margin: 1% 0 0 0
+                }
+
+                button{
+                margin: 2% auto 0;
+                font-family: 'Candal', sans-serif;
+                font-size: 1.75em;
+                border: none;
+                background: white;
+                width: 75%;
+                }
+                button:hover{
+                  background: black;
+                  color: white;
+                }
+
+            }
+
+        }
+
+
+  }

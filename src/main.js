@@ -9,6 +9,7 @@ import Login from "./components/major/Login";
 import App from "./components/App";
 import NotFound from "./components/minor/NotFound";
 import StudentDash from "./components/major/StudentDash";
+import CoachDash from "./components/major/CoachDash";
 
 //test
 import Register from "./components/major/Register";
@@ -31,6 +32,7 @@ const router = (
           <IndexRoute component={Login}></IndexRoute>
           <Route path="/register" component={Register}></Route>
           <Route path="/student/:id" component={StudentDash}></Route>
+          <Route path="/coach/:id" component={CoachDash}></Route>
         </Route>
       </Router>
   </Provider>

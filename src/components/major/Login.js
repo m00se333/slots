@@ -1,7 +1,6 @@
 import React from "react";
 
 import LoginForm from "../minor/LoginForm";
-import SignUpForm from "../minor/SignUpForm";
 
 const Login = React.createClass({
 

@@ -1,14 +1,14 @@
 import React from "react";
-import {RegistrationForm, LoginLink} from "react-stormpath";
 
+import SignUpForm from  "../minor/SignUpForm";
 
 const Register = React.createClass({
   render(){
     return(
-      <div>
-        <h1>This is the register page</h1>
-        <button onClick={this.hitRegister}></button>
-      </div>
+        <div className="loginComponentWrapper">
+          <h1>Slots</h1>
+          <SignUpForm />
+        </div>
       )
   }
 
