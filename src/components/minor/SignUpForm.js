@@ -5,7 +5,8 @@ const SignUpForm = React.createClass({
 
   componentWillMount(){
     this.setState({
-      password_passing: null
+      password_passing: false,
+      password_matching: false
     })
   },
 
@@ -15,16 +16,16 @@ const SignUpForm = React.createClass({
         const passwordString = this.password_field.value;
 
         const hasUpperCase = ((string) =>{
-            return(/[A-Z]/.test(string));
-        })
+                return(/[A-Z]/.test(string));
+            })
         const hasNumber = ((string) =>{
-            return (/\d/.test(string));
-        })
+                return (/\d/.test(string));
+            })
         const longEnough = ((string)=>{
-            const length = string.length
+                const length = string.length
 
-            return (length > 8); 
-        })
+                return (length > 8); 
+            })
 
         if (longEnough(passwordString) === true &&
             hasNumber(passwordString) === true &&
@@ -33,6 +34,7 @@ const SignUpForm = React.createClass({
           this.setState({
             password_passing: true
           })
+          
         } else {
           console.log("naw man");
           this.setState({
@@ -40,6 +42,21 @@ const SignUpForm = React.createClass({
           })
         }
           
+  },
+
+  passwordMatch(){
+    const password = this.password_field.value;
+    const confirmPassword = this.confirm_password_field.value;
+
+    if (password === confirmPassword){
+      this.setState({
+        password_matching: true
+      })
+    } else {
+      this.setState({
+        password_matching: false
+      })
+    }
   },
 
   captureForm(e){
@@ -57,9 +74,17 @@ const SignUpForm = React.createClass({
       }
 
       console.log(data);
+
+  },
+
+  hitApi(e){
+    e.preventDefault();
+    this.props.testRegister();
   },
 
   render(){
+
+      const completeRegistration = this.state.password_passing === true ? <button ref={(input) => this.register_button = input} onClick={this.captureForm}>Register</button> : null;
 
       return(
             <div className="signUpBox">
@@ -76,11 +101,12 @@ const SignUpForm = React.createClass({
                     <input ref={(input) => this.password_field = input} type="text" placeholder="password" onChange={this.passwordCheck}/>
                     <div id="status">{}</div>
                 </CSSTransitionGroup>
-                <input ref={(input) => this.confirm_password_field = input} type="text" placeholder="confirm password"/>
+                <input ref={(input) => this.confirm_password_field = input} type="text" placeholder="confirm password" onChange={this.passwordMatch}/>
                 <input ref={(input) => this.email_field = input} type="text" placeholder="email"/>
                 <input ref={(input) => this.grade_field = input} type="text" placeholder="grade"/>
                 <input id="last" ref={(input) => this.pin_field = input} type="text" placeholder="school PIN"/>
-                <button onClick={this.captureForm}>Register</button>
+                {completeRegistration}
+                <button onClick={this.hitApi}>Hit API</button>
              </form>
            </div>
         )     

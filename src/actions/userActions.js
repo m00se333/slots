@@ -30,17 +30,7 @@ export function selectForm(form){
 
 export function testRegister(){
   
-  const hit = axios({
-                      "method": "POST",
-                      "url": "https://excellent-badger.apps.stormpath.io/register",
-                      "headers":{
-                        "content-type": "application/json"
-                      },
-                      data:{
-                        "email": "new@email.com",
-                        "password": "NightWAYS4"
-                      }
-                    })
+  const hit = axios.post("/registerNewUser", {email: "kitties@kit.com", password: "meowMeow3"})
   return(dispatch) => {
 
         hit.then(({data}) =>{

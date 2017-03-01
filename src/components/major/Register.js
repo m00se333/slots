@@ -7,7 +7,7 @@ const Register = React.createClass({
     return(
         <div className="loginComponentWrapper">
           <h1>Slots</h1>
-          <SignUpForm />
+          <SignUpForm testRegister={this.props.testRegister} />
         </div>
       )
   }
