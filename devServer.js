@@ -46,21 +46,24 @@ app.get('*', function(req, res) {
 
 
 //route handling
-app.post("/login", function(req, res){
+app.post("/loginUser", function(req, res){
   
-  var userInfo = {
-    name: req.body.username,
-    password: req.body.password
-  }
+  var {username, password} = req.body;
 
-  console.log(userInfo.name);
-  console.log(userInfo.password);
+  var options = { method: "GET",
+                  url: "https://excellent-badger.apps.stormpath.io/login",
+                  headers: 
+                  { host: "excellent-badger.apps.stormpath.io",
+                    "content-type": "application/json"},
+                  body: {username, password},
+                  json: true  }
 
-    if (userInfo.name === "" || userInfo.password === ""){
-      res.send({success: false, message: userInfo})
-    } else {
-      res.send({success: true, message: userInfo});
-    }
+  request(options, function(error, response, body){
+    if (error) throw new Error(error);
+
+    console.log(body.form);
+    console.log(body.form.fields);
+  })
 });
 
 app.post("/registerNewUser", function(req,res){

@@ -10,7 +10,7 @@ const Login = React.createClass({
 
         <div className="loginComponentWrapper">
           <h1>Slots</h1>
-          <LoginForm />
+          <LoginForm loginSubmit={this.props.loginSubmit} />
           <a href="/register">New User?</a>
         </div>
       )

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function loginSubmit(username, password){
   
-    const hit = axios.post("/login", {username, password});
+    const hit = axios.post("/loginUser", {username, password});
 
     return (dispatch) => {
 
