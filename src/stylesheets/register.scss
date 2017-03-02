@@ -25,8 +25,40 @@
 
                     #status{
                       text-align: center;
-                      font-size: 1em;                    }
+                      font-size: 1em;                    
+                    }
                 }
+
+                .registerButton{
+                  margin: 1% 0;
+
+                    button{
+                      margin: 2% auto 0;
+                      font-family: 'Candal', sans-serif;
+                      font-size: 1.75em;
+                      border: none;
+                      background: white;
+                      width: 75%;
+                   }
+
+                   .registerCheck-enter{
+                      opacity: 0;
+                   }
+                   .registerCheck-enter-active{
+                      opacity: 1;
+                      transition: opacity .5s ease-in;
+                   }
+
+                   .registerCheck-leave{
+                      opacity: 1;
+                   }
+                   .registerCheck-leave-active{
+                      opacity: 0;
+                      transition: opacity .5s ease-out;
+                   }
+                }
+
+
 
                 input{
                   flex: 1;
@@ -46,14 +78,6 @@
                   margin: 1% 0 0 0
                 }
 
-                button{
-                margin: 2% auto 0;
-                font-family: 'Candal', sans-serif;
-                font-size: 1.75em;
-                border: none;
-                background: white;
-                width: 75%;
-                }
                 button:hover{
                   background: black;
                   color: white;

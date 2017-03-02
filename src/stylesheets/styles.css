@@ -95,6 +95,25 @@ body {
         .loginComponentWrapper .signUpBox .signUpForm .checkField #status {
           text-align: center;
           font-size: 1em; }
+      .loginComponentWrapper .signUpBox .signUpForm .registerButton {
+        margin: 1% 0; }
+        .loginComponentWrapper .signUpBox .signUpForm .registerButton button {
+          margin: 2% auto 0;
+          font-family: 'Candal', sans-serif;
+          font-size: 1.75em;
+          border: none;
+          background: white;
+          width: 75%; }
+        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-enter {
+          opacity: 0; }
+        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-enter-active {
+          opacity: 1;
+          transition: opacity .5s ease-in; }
+        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-leave {
+          opacity: 1; }
+        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-leave-active {
+          opacity: 0;
+          transition: opacity .5s ease-out; }
       .loginComponentWrapper .signUpBox .signUpForm input {
         flex: 1;
         font-family: 'Candal', sans-serif;
@@ -108,13 +127,6 @@ body {
         margin: 0 0 1% 0; }
       .loginComponentWrapper .signUpBox .signUpForm #last {
         margin: 1% 0 0 0; }
-      .loginComponentWrapper .signUpBox .signUpForm button {
-        margin: 2% auto 0;
-        font-family: 'Candal', sans-serif;
-        font-size: 1.75em;
-        border: none;
-        background: white;
-        width: 75%; }
       .loginComponentWrapper .signUpBox .signUpForm button:hover {
         background: black;
         color: white; }
