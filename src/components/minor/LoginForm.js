@@ -18,8 +18,8 @@ const LoginForm = React.createClass({
         <div className="loginWrapper">
           <div className="loginBox">
             <form className="loginForm" action="">
-              <input ref={(input) => this.username_field = input} type="text" placeholder="username" />
-              <input ref={(input) => this.password_field = input} type="text" placeholder="password" />
+              <input ref={(input) => this.username_field = input} type="text" placeholder="username" value="kitties@kit.com" />
+              <input ref={(input) => this.password_field = input} type="text" placeholder="password" value="meowMeow3" />
               <button onClick={this.loginAttempt}>Login</button>
             </form>
           </div>

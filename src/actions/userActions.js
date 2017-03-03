@@ -14,6 +14,8 @@ export function loginSubmit(username, password){
             dispatch({type: "LOGIN_SUCCESS"})
           }
 
+        console.log(data);
+
         });
     };
 };
@@ -33,6 +35,7 @@ export function testRegister(){
   const hit = axios.post("/registerNewUser", {email: "kitties@kit.com", password: "meowMeow3"})
   return(dispatch) => {
 
+        console.log(dispatch)
         hit.then(({data}) =>{
           console.log(data)
         })

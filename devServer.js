@@ -50,19 +50,28 @@ app.post("/loginUser", function(req, res){
   
   var {username, password} = req.body;
 
-  var options = { method: "GET",
-                  url: "https://excellent-badger.apps.stormpath.io/login",
+  var urlString = "grant_type=password&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password);
+  console.log(urlString)
+  var options = { method: "POST",
+                  url: "https://excellent-badger.apps.stormpath.io/oauth/token",
                   headers: 
                   { host: "excellent-badger.apps.stormpath.io",
-                    "content-type": "application/json"},
-                  body: {username, password},
-                  json: true  }
+                    "content-type": "application/x-www-form-urlencoded",
+                    accept: "application/json"
+                  },
+                  body: urlString}
+          
 
   request(options, function(error, response, body){
     if (error) throw new Error(error);
 
-    console.log(body.form);
-    console.log(body.form.fields);
+    console.log(body)
+    
+    var data = response.body;
+  
+    console.log(data)
+
+    res.send(data);
   })
 });
 
