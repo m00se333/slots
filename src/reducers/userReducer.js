@@ -4,7 +4,10 @@ export function loginStatus(state={}, action){
 
       case "LOGIN_SUCCESS":
         console.log(action);
-        return {...state, success: true};
+
+        const {success, access_token} = action.payload;
+
+        return {success: success, access_token: access_token}
 
       case "LOGIN_ERROR":
         console.log(action);

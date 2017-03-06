@@ -8,27 +8,22 @@ export function loginSubmit(username, password){
 
         hit.then(({data}) => {
 
-          if (data.success === false){
+          if (data){
+            dispatch({type: "LOGIN_SUCCESS",
+                      payload: {
+                        success: true,
+                        access_token: data.access_token
+                      }})
+          
+          } else if (!data){
             dispatch({type: "LOGIN_ERROR"})
-          } else if (data.success === true){
-            dispatch({type: "LOGIN_SUCCESS"})
+      
           }
-
-        console.log(data);
 
         });
     };
 };
 
-
-
-export function resetSuccess(){
-  return {type: "NAV_AWAY"};
-}
-
-export function selectForm(form){
-  return {type: "CHOOSE_FORM", form};
-}
 
 export function testRegister(){
   
@@ -42,6 +37,17 @@ export function testRegister(){
     }
   
   
+}
+
+export function getUserData(token){
+  const hit = axios.post("/getUser", {token: token});
+
+  return(dispatch) => {
+
+      hit.then(({data}) => {
+        console.log(data);
+      })
+  }
 }
 
 

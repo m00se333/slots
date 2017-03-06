@@ -50,8 +50,10 @@ app.post("/loginUser", function(req, res){
   
   var {username, password} = req.body;
 
+  var tokenObject;
+
   var urlString = "grant_type=password&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password);
-  console.log(urlString)
+ 
   var options = { method: "POST",
                   url: "https://excellent-badger.apps.stormpath.io/oauth/token",
                   headers: 
@@ -62,18 +64,37 @@ app.post("/loginUser", function(req, res){
                   body: urlString}
           
 
-  request(options, function(error, response, body){
-    if (error) throw new Error(error);
+    request(options, function(error, response, body){
+        if (error) throw new Error(error);
 
-    console.log(body)
-    
-    var data = response.body;
+        tokenObject = response.body;
+        res.send(tokenObject);
+          
   
-    console.log(data)
+      })
 
-    res.send(data);
-  })
 });
+
+// Get user info and reroute
+app.post("/getUser", function(req, res){
+  var {token} = req.body;
+  console.log(token);
+
+  var options = { method: "GET",
+                     url: "https://excellent-badger.apps.stormpath.io/me",
+                     headers: {
+                      host: "excellent-badger.apps.stormpath.io",
+                      "content-type": "application/json",
+                      authorization: "Bearer " + token
+                     }
+                }
+
+          request(options, function(error, response, body){
+            if (error) throw new Error(error);
+            console.log(body);
+            res.send(body);
+          })
+})
 
 app.post("/registerNewUser", function(req,res){
   var {email, password} = req.body;
