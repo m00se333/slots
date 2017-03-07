@@ -10,6 +10,7 @@ import App from "./components/App";
 import NotFound from "./components/minor/NotFound";
 import StudentDash from "./components/major/StudentDash";
 import CoachDash from "./components/major/CoachDash";
+import StoreShell from "./components/StoreShell";
 
 //test
 import Register from "./components/major/Register";
@@ -28,7 +29,7 @@ const router = (
 
   <Provider store={store}>
       <Router history={history}>
-        <Route path="/" component={App}>
+        <Route path="/" component={StoreShell}>
           <IndexRoute component={Login}></IndexRoute>
           <Route path="/register" component={Register}></Route>
           <Route path="/student/:id" component={StudentDash}></Route>

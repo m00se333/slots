@@ -1,21 +1,17 @@
 export function loginStatus(state={}, action){
+
+  
   
   switch(action.type){
 
       case "LOGIN_SUCCESS":
-        console.log(action);
-
         const {success, access_token} = action.payload;
-
         return {success: success, access_token: access_token}
 
       case "LOGIN_ERROR":
-        console.log(action);
-        return {...state, success: false};
-
-      case "NAV_AWAY":
-        console.log(action);
-        return {...state, success: null};
+        
+        return {success: success, access_token: null}
+  
 
       default:
         return state;
@@ -23,16 +19,23 @@ export function loginStatus(state={}, action){
 
 };
 
-export function loginForm(state=null, action){
 
-  switch(action.type){
+export function user(state={}, action){
+    
+    
 
-      case "CHOOSE_FORM":
-  
-        return action.form;
+    switch(action.type){
 
+      case "USER_DATA_POPULATE":
+        console.log(action)
+        const {email, username} = action.payload;
+        return {...state, email: email, username: username}
+
+      case "USER_DATA_POPULATE_ERROR":
+
+        return state;
 
       default:
         return state;
-  }
+    }
 }

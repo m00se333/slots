@@ -1,20 +1,20 @@
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as actionCreators from "../actions/userActions.js";
+// import { bindActionCreators } from "redux";
+// import { connect } from "react-redux";
+// import * as actionCreators from "../actions/userActions.js";
 
-import StoreShell from "./StoreShell.js";
+// import StoreShell from "./StoreShell.js";
 
-function mapStateToProps(state){
-  return{
-    loginStatus: state.loginStatus,
-    loginForm: state.loginForm
-  }
-}
+// function mapStateToProps(state){
+//   return{
+//     loginStatus: state.loginStatus,
+//     user: state.user
+//   }
+// }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators(actionCreators, dispatch)
-}
+// function mapDispatchToProps(dispatch){
+//   return bindActionCreators(actionCreators, dispatch)
+// }
 
-const App = connect(mapStateToProps, mapDispatchToProps)(StoreShell);
+// const App = connect(mapStateToProps, mapDispatchToProps)(StoreShell);
 
-export default App;
+// export default App;

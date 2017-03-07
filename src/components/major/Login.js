@@ -1,23 +1,26 @@
 import React from "react";
+import {connect} from "react-redux";
 
-import LoginForm from "../minor/LoginForm";
+import {loginSubmit, getUserData} from "../../actions/userActions";
+import {LoginForm} from "../minor/LoginForm";
 
 const Login = React.createClass({
 
-  componentDidUpdate(){
+  handleSubmit(e){
+      e.preventDefault()
+      this.props.loginSubmit(
+          this.usernameInput.value,
+          this.passwordInput.value
+        );
 
-    const {success, access_token} = this.props.loginStatus;
+  },
 
+  setUsernameRef(input){
+    this.usernameInput = input;
+  },
 
-    const tokenCheck = access_token.length === 450 ? true : false;
-
-    if (success === true && tokenCheck === true){
-      console.log("It worked getting your data now...");
-      this.props.getUserData(access_token);
-    } else if (success === false || tokenCheck === false){
-      console.log("Something went wrong...");
-    }
-
+  setPasswordRef(input){
+    this.passwordInput = input;
   },
 
   render(){
@@ -26,11 +29,24 @@ const Login = React.createClass({
 
         <div className="loginComponentWrapper">
           <h1>Slots</h1>
-          <LoginForm loginSubmit={this.props.loginSubmit} />
+          <LoginForm handleSubmit={this.handleSubmit.bind(this)}
+                     setUsernameRef={this.setUsernameRef.bind(this)}
+                     setPasswordRef={this.setPasswordRef.bind(this)}/>
           <a href="/register">New User?</a>
         </div>
       )
   }
 });
 
-export default Login;
+const mapStateToProps = (state) => {
+  return{
+    loginStatus: state.loginStatus,
+    user: state.user
+  }
+};
+const mapDispatchToProps = {
+  loginSubmit,
+  getUserData
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import { syncHistoryWithStore } from "react-router-redux";
+import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import { browserHistory } from "react-router";
 import thunkMiddleware from "redux-thunk";
 
@@ -18,10 +18,15 @@ const defaultState = {
 
   },
 
-  loginForm: null
+  user:{
+    username: null,
+    email: null,
+    grade: null,
+    events: []
+  }
 
 }
 
-export const store = createStore(rootReducer, defaultState, applyMiddleware(thunkMiddleware));
+export const store = createStore(rootReducer, defaultState, applyMiddleware(thunkMiddleware, routerMiddleware(browserHistory)));
 
 export const history = syncHistoryWithStore(browserHistory, store);
