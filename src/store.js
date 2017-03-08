@@ -2,10 +2,15 @@ import { createStore, compose, applyMiddleware } from "redux";
 import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import { browserHistory } from "react-router";
 import thunkMiddleware from "redux-thunk";
+import {persistStore, autoRehydrate} from "redux-persist";
 
 // root reducer
 
 import rootReducer from "./reducers/mainReducer";
+
+
+//persisted state
+
 
 //default state
 
@@ -27,6 +32,26 @@ const defaultState = {
 
 }
 
-export const store = createStore(rootReducer, defaultState, applyMiddleware(thunkMiddleware, routerMiddleware(browserHistory)));
+
+export const store = createStore(
+                                  rootReducer, 
+                                  defaultState, 
+                                  compose(
+                                    applyMiddleware(thunkMiddleware, routerMiddleware(browserHistory)),
+                                    autoRehydrate()
+                                    )
+                                );
+
+persistStore(store);
 
 export const history = syncHistoryWithStore(browserHistory, store);
+
+
+
+
+
+
+
+
+
+

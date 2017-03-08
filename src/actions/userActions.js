@@ -35,28 +35,6 @@ export function testRegister(){
   
 }
 
-// export function getUserData(token){
-//   const hit = axios.post("/getUser", {token: token});
-
-//   return(dispatch) => {
-
-//       hit.then(({data}) => {
-//           console.log(data);
-//           const {email, username} = data.account
-
-//           if(data){
-//             dispatch({type: "USER_DATA_POPULATE",
-//                       payload: {
-//                         email: email,
-//                         username: username
-//                       }})
-//           } else if (!data){
-//             dispatch({type: "USER_DATA_POPULATE_ERROR"})
-//           }
-//       })
-//   }
-// }
-
 
 const getUserData = (access_token) => (dispatch) => {
     const hit = axios.post("/getUser", {token: access_token})
@@ -64,11 +42,16 @@ const getUserData = (access_token) => (dispatch) => {
 
         const {account} = response.data
 
-        //dispatch(loginSucceeded(response.user));
+        dispatch(loginSucceeded(account));
         console.log(account);
         dispatch(push(`/student/${account.username}`));
     });
   }
 
+
+const loginSucceeded = (user) =>({
+  type: "USER_DATA_POPULATE",
+  payload: user
+})
 
 

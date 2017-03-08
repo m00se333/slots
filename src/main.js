@@ -6,7 +6,6 @@ import "./stylesheets/styles.css";
 
 //components
 import Login from "./components/major/Login";
-import App from "./components/App";
 import NotFound from "./components/minor/NotFound";
 import StudentDash from "./components/major/StudentDash";
 import CoachDash from "./components/major/CoachDash";
