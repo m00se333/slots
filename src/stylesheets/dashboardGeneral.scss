@@ -1,0 +1,28 @@
+.dashContainer{
+  display: flex;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+    .nav{
+      display: flex;
+      flex: 1;
+      border: 1px solid black;
+      flex-direction: column;
+
+          #userInfo{
+            border: 1px solid red;
+            flex:1;
+          }
+
+          #navButtons{
+            border: 1px solid blue;
+            flex: 3;
+          }
+    }
+
+    .navFocus{
+      display: flex;
+      flex: 4;
+      border: 1px solid black;
+    }
+}

@@ -8,7 +8,10 @@ const StudentDash = React.createClass({
 
         <div className="dashContainer">
           <div className="nav">
-            <h2>Hello {this.props.user.username}</h2>
+            <div id="userInfo">
+              Hello {this.props.user.username}
+            </div>
+            <div id="navButtons"></div>
           </div>
           <div className="navFocus"></div>
         </div>

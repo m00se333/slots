@@ -131,4 +131,25 @@ body {
         background: black;
         color: white; }
 
+.dashContainer {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  margin: auto; }
+  .dashContainer .nav {
+    display: flex;
+    flex: 1;
+    border: 1px solid black;
+    flex-direction: column; }
+    .dashContainer .nav #userInfo {
+      border: 1px solid red;
+      flex: 1; }
+    .dashContainer .nav #navButtons {
+      border: 1px solid blue;
+      flex: 3; }
+  .dashContainer .navFocus {
+    display: flex;
+    flex: 4;
+    border: 1px solid black; }
+
 /*# sourceMappingURL=styles.css.map */
