@@ -27,7 +27,9 @@ const defaultState = {
     email: null,
     grade: null,
     events: []
-  }
+  },
+
+  activeTab: null
 
 }
 
@@ -35,13 +37,11 @@ const defaultState = {
 export const store = createStore(
                                   rootReducer, 
                                   defaultState, 
-                                  compose(
-                                    applyMiddleware(thunkMiddleware, routerMiddleware(browserHistory)),
-                                    autoRehydrate()
+                                  compose(applyMiddleware(thunkMiddleware, routerMiddleware(browserHistory))
+                                    
                                     )
                                 );
 
-persistStore(store);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

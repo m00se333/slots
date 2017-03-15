@@ -41,7 +41,7 @@ const getUserData = (access_token) => (dispatch) => {
     .then(response => {
 
         const {account} = response.data
-
+        console.log(dispatch)
         dispatch(loginSucceeded(account));
         console.log(account);
         dispatch(push(`/student/${account.username}`));
