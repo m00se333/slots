@@ -11,7 +11,10 @@ const StudentDash = React.createClass({
             <div id="userInfo">
               Hello {this.props.user.username}
             </div>
-            <div id="navButtons"></div>
+            <div id="navButtons">
+              <div>Caleander</div>
+              <div>Profile</div>
+            </div>
           </div>
           <div className="navFocus"></div>
         </div>
