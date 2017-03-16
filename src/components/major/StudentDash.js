@@ -3,10 +3,35 @@ import {connect} from "react-redux";
 
 import { chooseTab } from "../../actions/dashActions";
 
+import Caleander from "../minor/Caleander";
+import BallotEntry from "../minor/BallotEntry";
+import StudentProfile from "../minor/StudentProfile";
+
+
 const StudentDash = React.createClass({
 
-  handleTabChange(button){
+  updateTabState(button){
     this.props.chooseTab(button);
+  },
+
+  tabSelect(){
+    
+     const {activeTab} = this.props;
+     switch(activeTab){
+
+        case "caleander":
+          return <Caleander/>
+
+        case "ballots":
+          return <BallotEntry/>
+
+        case "profile":
+          return <StudentProfile/>
+
+        default:
+          return <Caleander/>
+     } 
+
   },
 
   render(){
@@ -18,12 +43,14 @@ const StudentDash = React.createClass({
               Hello {this.props.user.username}
             </div>
             <div id="navButtons">
-              <button  onClick={() => this.handleTabChange("profile")}>Profile</button>
-              <button  onClick={() => this.handleTabChange("caleander")}>Caleander</button>
-              <button  onClick={() => this.handleTabChange("ballots")}>Ballot Entry</button>
+              <button  onClick={() => this.updateTabState("profile")}>Profile</button>
+              <button  onClick={() => this.updateTabState("caleander")}>Caleander</button>
+              <button  onClick={() => this.updateTabState("ballots")}>Ballot Entry</button>
             </div>
           </div>
-          <div className="navFocus"></div>
+          <div className="navFocus">
+            {this.tabSelect()}
+          </div>
         </div>
 
       )
@@ -42,3 +69,11 @@ const mapDispatchToProps =  {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentDash);
+
+
+
+
+
+
+
+
