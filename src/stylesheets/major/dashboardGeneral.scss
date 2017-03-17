@@ -35,5 +35,9 @@
       display: flex;
       flex: 4;
       border: 1px solid black;
+
+        @import "./minor/student_ballot_entry.scss";
+        @import "./minor/student_caleander.scss";
+        @import "./minor/student_profile.scss";
     }
 }

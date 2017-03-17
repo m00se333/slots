@@ -1,0 +1,16 @@
+.caleanderWrapper{
+
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+
+      .caleander_day{
+        flex: 1;
+        border-right: 1px solid black;
+      }
+
+      .caleander_day:nth-of-type(7){
+        border: none;
+      }
+}

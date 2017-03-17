@@ -8,22 +8,9 @@ var compiler = webpack(config);
 var stormpath = require("express-stormpath");
 var request = require("request");
 
+var routes = require("./routes/auth0routes.js");
+var mongoMethod = require("./routes/mongoroutes.js");
 
-// app.use(stormpath.init(app, {
-//     web: {
-//       spa: {
-//         enabled: true,
-//         view: path.join(__dirname, "index.html")
-//       },
-//       produces: ["applicaton/json"],
-//       login: {
-//         view: path.join(__dirname, "/")
-//       },
-//       register: {
-//         view: path.join(__dirname, "/register")
-//       }
-//     }
-// }));
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -115,6 +102,10 @@ app.post("/registerNewUser", function(req,res){
         console.log(body);
       });
 
+})
+
+app.post("/caleanderPopulate", function(req,res){
+  mongoMethod.record(req.body);
 })
 
 

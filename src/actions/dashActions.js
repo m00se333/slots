@@ -4,3 +4,10 @@ export function chooseTab(tab){
     type: tab.toUpperCase()
   }
 }
+
+// export function populateCaleander(student){
+//   return {
+//     type: "POP_CALEANDER",
+//     student
+//   }
+// }

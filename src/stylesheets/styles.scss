@@ -20,6 +20,6 @@ body {
   display: flex;
 }
 
-@import "login.scss";
-@import "register.scss";
-@import "dashboardGeneral.scss";
+@import "./major/login.scss";
+@import "./major/register.scss";
+@import "./major/dashboardGeneral.scss";

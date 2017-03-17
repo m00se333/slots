@@ -20,7 +20,7 @@ const StudentDash = React.createClass({
      switch(activeTab){
 
         case "caleander":
-          return <Caleander/>
+          return <Caleander user={this.props.user}/>
 
         case "ballots":
           return <BallotEntry/>
@@ -29,7 +29,7 @@ const StudentDash = React.createClass({
           return <StudentProfile/>
 
         default:
-          return <Caleander/>
+          return <Caleander user={this.props.user}/>
      } 
 
   },

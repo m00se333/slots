@@ -27,5 +27,15 @@
     display: flex;
     flex: 4;
     border: 1px solid black; }
+    .dashContainer .navFocus .caleanderWrapper {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      flex-direction: row; }
+      .dashContainer .navFocus .caleanderWrapper .caleander_day {
+        flex: 1;
+        border-right: 1px solid black; }
+      .dashContainer .navFocus .caleanderWrapper .caleander_day:nth-of-type(7) {
+        border: none; }
 
 /*# sourceMappingURL=dashboardGeneral.css.map */
