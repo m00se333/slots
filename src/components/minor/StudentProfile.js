@@ -3,10 +3,19 @@ import React from "react";
 const StudentProfile = ({}) => (
 
   <div className="studentProfileWrapper">
-    <span>Name</span>
-    <span>Email</span>
-    <span>Events</span>
-    <span>Picture</span>
+    <div className="infoWrapper">
+      <div className="pictureBox">
+        <div className="portrait"></div>
+      </div>
+      
+      <div className="editFields">
+          <div id="name">Name</div>
+          <div id="email">Email</div>
+          <div id="events">Events</div>
+      </div>
+
+      
+    </div>
   </div>
 
 

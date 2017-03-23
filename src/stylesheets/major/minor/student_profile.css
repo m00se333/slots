@@ -1,3 +1,30 @@
-
+.studentProfileWrapper {
+  display: flex;
+  height: 100%;
+  width: 100%; }
+  .studentProfileWrapper .infoWrapper {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 0 auto; }
+    .studentProfileWrapper .infoWrapper .pictureBox {
+      border: 1px solid green;
+      flex: 1;
+      display: flex;
+      align-items: center; }
+      .studentProfileWrapper .infoWrapper .pictureBox .portrait {
+        border: 1px solid black;
+        height: 50%;
+        width: 100%; }
+    .studentProfileWrapper .infoWrapper .editFields {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      margin: 5% 5% 5% 0%; }
+      .studentProfileWrapper .infoWrapper .editFields #name, .studentProfileWrapper .infoWrapper .editFields #email, .studentProfileWrapper .infoWrapper .editFields #events {
+        flex: 1;
+        border: 1px solid blue;
+        margin-left: 7.5%; }
 
 /*# sourceMappingURL=student_profile.css.map */

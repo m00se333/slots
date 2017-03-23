@@ -2,10 +2,16 @@
   display: flex;
   height: 100%;
   width: 100%;
-  flex-direction: row; }
+  flex-direction: row;
+  text-align: center; }
   .caleanderWrapper .caleander_day {
     flex: 1;
     border-right: 1px solid black; }
+    .caleanderWrapper .caleander_day span {
+      display: flex;
+      justify-content: center;
+      background: #963a49;
+      color: white; }
   .caleanderWrapper .caleander_day:nth-of-type(7) {
     border: none; }
 

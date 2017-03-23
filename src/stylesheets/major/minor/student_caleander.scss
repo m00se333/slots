@@ -4,10 +4,19 @@
     height: 100%;
     width: 100%;
     flex-direction: row;
+    text-align: center;
+
 
       .caleander_day{
         flex: 1;
         border-right: 1px solid black;
+
+          span{
+            display: flex;
+            justify-content: center;
+            background: rgba(150,58,73, 1);
+            color: white;
+          }
       }
 
       .caleander_day:nth-of-type(7){
