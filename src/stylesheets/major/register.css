@@ -5,55 +5,5 @@
   margin: auto;
   align-items: center;
   justify-content: center; }
-  .loginComponentWrapper .signUpBox {
-    display: flex;
-    margin: 5%; }
-    .loginComponentWrapper .signUpBox .signUpForm {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; }
-      .loginComponentWrapper .signUpBox .signUpForm .checkField {
-        margin: 1% 0;
-        flex-direction: column; }
-        .loginComponentWrapper .signUpBox .signUpForm .checkField input {
-          margin: 0; }
-        .loginComponentWrapper .signUpBox .signUpForm .checkField #status {
-          text-align: center;
-          font-size: 1em; }
-      .loginComponentWrapper .signUpBox .signUpForm .registerButton {
-        margin: 1% 0; }
-        .loginComponentWrapper .signUpBox .signUpForm .registerButton button {
-          margin: 2% auto 0;
-          font-family: 'Candal', sans-serif;
-          font-size: 1.75em;
-          border: none;
-          background: white;
-          width: 75%; }
-        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-enter {
-          opacity: 0; }
-        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-enter-active {
-          opacity: 1;
-          transition: opacity .5s ease-in; }
-        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-leave {
-          opacity: 1; }
-        .loginComponentWrapper .signUpBox .signUpForm .registerButton .registerCheck-leave-active {
-          opacity: 0;
-          transition: opacity .5s ease-out; }
-      .loginComponentWrapper .signUpBox .signUpForm input {
-        flex: 1;
-        font-family: 'Candal', sans-serif;
-        background-color: white;
-        color: black;
-        border: none;
-        font-size: 1.5em;
-        text-align: center;
-        margin: 1% 0; }
-      .loginComponentWrapper .signUpBox .signUpForm #first {
-        margin: 0 0 1% 0; }
-      .loginComponentWrapper .signUpBox .signUpForm #last {
-        margin: 1% 0 0 0; }
-      .loginComponentWrapper .signUpBox .signUpForm button:hover {
-        background: black;
-        color: white; }
 
 /*# sourceMappingURL=register.css.map */
