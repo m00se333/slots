@@ -80,6 +80,19 @@ body {
   margin: auto;
   align-items: center;
   justify-content: center; }
+  .loginComponentWrapper #registerForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .loginComponentWrapper #registerForm .inputBox {
+      width: 30%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin: 4% 0; }
+      .loginComponentWrapper #registerForm .inputBox label {
+        color: white; }
 
 .dashContainer {
   display: flex;
