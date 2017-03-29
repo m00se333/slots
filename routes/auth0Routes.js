@@ -1,14 +1,12 @@
-
-
 module.exports.register = (username, email, password ) => {
 
 
   return {  method: "POST",
-            url: "https://moose333.auth0.com/dbconnections/signup",
+            url: process.env.AUTH0_ROUTE_SIGNUP,
             headers: {"content-type": "application/x-www-form-urlencoded"},
             form: {
 
-              client_id: "hpU4GbTT1ZHyzdRPoNEDGk0kbfdQIQRA",
+              client_id: process.env.AUTH0_CLIENT_ID,
               username: username,
               email: email,
               password: password,
@@ -21,14 +19,27 @@ module.exports.register = (username, email, password ) => {
 
 }
 
-// var options = { method: 'POST',
-//   url: 'https://moose333.auth0.com/dbconnections/signup',
-//   headers: 
-//    { 'postman-token': '92491822-5e4b-acf3-4a4d-410370d8ed23',
-//      'cache-control': 'no-cache',
-//      'content-type': 'application/x-www-form-urlencoded' },
-//   form: 
-//    { client_id: 'hpU4GbTT1ZHyzdRPoNEDGk0kbfdQIQRA',
-//      email: 'testemail@test.com',
-//      password: 'testPassword333',
-//      connection: 'Username-Password-Authentication' } };
+module.exports.authenticate = (username, password) => {
+
+  return { method: "POST",
+           url: process.env.AUTH0_ROUTE_USER_ACCESS_TOKEN,
+           headers: {"content-type": "application/x-www-form-urlencoded"},
+           form: {
+              client_id: process.env.AUTH0_CLIENT_ID,
+              username: username,
+              password: password,
+              connection: 'Username-Password-Authentication' 
+            }
+          }
+
+}
+
+module.exports.getUserInfo = (token) => {
+
+  return { method: "GET",
+           url: process.env.AUTH0_ROUTE_USER_INFO,
+          headers: { "authorization": "Bearer " + token }
+         }
+
+
+}

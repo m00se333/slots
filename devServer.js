@@ -1,3 +1,4 @@
+require("dotenv").config();
 var path = require("path");
 var express = require("express");
 var PORT = process.env.PORT || 7887;
@@ -31,6 +32,41 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Get User Data
+app.post("/getUser", function(req, res){
+  const { token } = req.body;
+  const options = auth0.getUserInfo(token);
+  let userInfo;
+
+  console.log(token);
+
+  request(options, function(error, response, body){
+    if (error) throw new Error(error);
+    
+    userInfo = response.body;
+
+    res.send(userInfo);
+
+  })
+
+})
+
+// Authenticate username and password
+app.post("/authenticateUser", function(req, res){
+    const {username, password} = req.body;
+    const options = auth0.authenticate(username, password);
+    let tokenObject;
+
+    request(options, function(error, response, body){
+      if (error) throw new Error(error);
+
+      tokenObject = response.body;
+
+      res.send(tokenObject);
+
+    });
+
+});
 
 // User Registration
 app.post("/registerNewUser", function(req,res){
@@ -41,13 +77,14 @@ app.post("/registerNewUser", function(req,res){
     // add user to Mongo
     //mongoMethod.addNewUser(username, email)
 
-    // off to Auth0
-    // request(options, function(error, response, body){
-    //   if (error) throw new Error(error);
-    //   console.log(body);
-    // })
+    //off to Auth0
+    request(options, function(error, response, body){
+      if (error) throw new Error(error);
+      console.log(body);
+    })
 
     console.log(req.body);
+    console.log(options);
 
 })
 
