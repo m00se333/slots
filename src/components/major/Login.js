@@ -29,9 +29,9 @@ const Login = React.createClass({
 
         <div className="loginComponentWrapper">
           <h1>Slots</h1>
-          <LoginForm handleSubmit={this.handleSubmit.bind(this)}
-                     setUsernameRef={this.setUsernameRef.bind(this)}
-                     setPasswordRef={this.setPasswordRef.bind(this)}/>
+          <LoginForm handleSubmit={this.handleSubmit}
+                     setUsernameRef={this.setUsernameRef}
+                     setPasswordRef={this.setPasswordRef}/>
           <a href="/register">New User?</a>
         </div>
       )

@@ -8,3 +8,14 @@ module.exports.record = (name) => {
       db.collection("users").insert({user: name});
     })
 }
+
+module.exports.addNewUser = (username, email) => {
+
+  
+
+    MongoClient.connect("mongodb://localhost:27017/slots", function(err, db){
+
+      db.collection("users").insert({user: username, email: email});
+
+    })
+}

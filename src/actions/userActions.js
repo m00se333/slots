@@ -55,3 +55,13 @@ const loginSucceeded = (user) =>({
 })
 
 
+export function registerSubmit(data){
+
+    const route = axios.post("/registerNewUser", data)
+
+    .then(response =>{
+
+    });
+}
+
+

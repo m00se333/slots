@@ -1,63 +1,42 @@
 import React from "react";
 import CSSTransitionGroup from "react-addons-css-transition-group";
 
-const SignUpForm = React.createClass({
+export const SignUpForm = ({handleRegister, usernameRef, passwordRef, emailRef, pinRef}) => (
 
-  handleSubmit(e){
-
-    e.preventDefault();
-
-    const data = new FormData(e.target);
-
-    console.log(data);
-    
-  },
-
-  render(){
-    
-
-    return(
-
-      <form id="registerForm" onSubmit={this.handleSubmit}>
+    <form id="registerForm">
         
         <div className="inputBox">
           <label htmlFor="username">Choose a username</label>
-          <input name="username" type="text" defaultValue="placeholder" />
+          <input ref={usernameRef} type="text" defaultValue="placeholder username" />
         </div>
 
         <div className="inputBox">
           <label htmlFor="password">Choose a password</label>
-          <input name="password" type="text" defaultValue="placeholder"/>
+          <input ref={passwordRef} type="text" defaultValue="placeholder password"/>
 
         </div>
 
         <div className="inputBox">
             <label htmlFor="confirm_pass">Confirm password {`\u00A0\u00A0\u00A0👻`}</label>
-            <input name="confirm_pass" type="text" defaultValue="placeholder"/>  
+            <input type="text" defaultValue="placeholder confirm password"/>  
           
         </div>
 
         <div className="inputBox">
           <label htmlFor="email">Enter email</label>
-          <input name="email" type="text" defaultValue="placeholder"/>
+          <input ref={emailRef} type="text" defaultValue="placeholder@email.com"/>
 
         </div>
 
         <div className="inputBox">
           <label htmlFor="pin">School PIN</label>
-          <input name="pin" type="text" defaultValue="placeholder"/>
+          <input ref={pinRef} type="text" defaultValue="placeholder pin"/>
 
         </div>
           
         
-        <button>Register</button>
+        <button onClick={handleRegister}>Register</button>
         
       </form>
 
-      )
-
-
-  }
-});
-
-export default SignUpForm;
+  );

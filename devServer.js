@@ -8,7 +8,7 @@ var compiler = webpack(config);
 var stormpath = require("express-stormpath");
 var request = require("request");
 
-var routes = require("./routes/auth0routes.js");
+var auth0 = require("./routes/auth0routes.js");
 var mongoMethod = require("./routes/mongoroutes.js");
 
 
@@ -32,80 +32,23 @@ app.get('*', function(req, res) {
 });
 
 
-//route handling
-app.post("/loginUser", function(req, res){
-  
-  var {username, password} = req.body;
-
-  var tokenObject;
-
-  var urlString = "grant_type=password&username="+encodeURIComponent(username)+"&password="+encodeURIComponent(password);
- 
-  var options = { method: "POST",
-                  url: "https://excellent-badger.apps.stormpath.io/oauth/token",
-                  headers: 
-                  { host: "excellent-badger.apps.stormpath.io",
-                    "content-type": "application/x-www-form-urlencoded",
-                    accept: "application/json"
-                  },
-                  body: urlString}
-          
-
-    request(options, function(error, response, body){
-        if (error) throw new Error(error);
-
-        tokenObject = response.body;
-        res.send(tokenObject);
-          
-  
-      })
-
-});
-
-// Get user info and reroute
-app.post("/getUser", function(req, res){
-  var {token} = req.body;
-  console.log(token);
-
-  var options = { method: "GET",
-                     url: "https://excellent-badger.apps.stormpath.io/me",
-                     headers: {
-                      host: "excellent-badger.apps.stormpath.io",
-                      "content-type": "application/json",
-                      authorization: "Bearer " + token
-                     }
-                }
-
-          request(options, function(error, response, body){
-            if (error) throw new Error(error);
-            console.log(body);
-            res.send(body);
-          })
-})
-
+// User Registration
 app.post("/registerNewUser", function(req,res){
-  var {email, password} = req.body;
+  
+    const { username, password, email, pin } = req.body;
+    const options = auth0.register(username, email, password);
 
+    // add user to Mongo
+    //mongoMethod.addNewUser(username, email)
 
+    // off to Auth0
+    // request(options, function(error, response, body){
+    //   if (error) throw new Error(error);
+    //   console.log(body);
+    // })
 
-  var options = { method: 'POST',
-                  url: 'https://excellent-badger.apps.stormpath.io/register',
-                  headers: 
-                   { host: 'excellent-badger.apps.stormpath.io',
-                     'content-type': 'application/json' },
-                  body: {email, password},
-                  json: true };
+    console.log(req.body);
 
-  request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-
-        console.log(body);
-      });
-
-})
-
-app.post("/caleanderPopulate", function(req,res){
-  mongoMethod.record(req.body);
 })
 
 
